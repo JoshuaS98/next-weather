@@ -14,6 +14,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'static.meteoblue.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'openweathermap.org',
+      },
     ],
     dangerouslyAllowSVG: true,
   },

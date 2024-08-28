@@ -11,7 +11,7 @@ const getWeather = async ({ lon, lat }: { lon: number; lat: number }) => {
 
 export default async function Page() {
   // Fetch data directly in a Server Component
-  const data = await getWeather({ lon: -0.3763353, lat: 39.4697065 })
+  const weather = await getWeather({ lon: -0.3763353, lat: 39.4697065 })
   // Forward fetched data to your Client Component
-  return <Home data={data} />
+  return <Home weather={weather} />
 }

@@ -9,15 +9,8 @@ export default function Page() {
   const params = useParams<{ city: string }>()
   const city = cities.find((city) => cityNameToSlug(city.name) === params.city)
 
-  if (!city)
-    return (
-      <h2 className='mb-2 text-sm font-medium text-gray-500'>
-        Data for {params.city} not available.
-      </h2>
-    )
-
   const apiKey = '8353a3ac0e6f6eeff64281d9ac417a7f'
-  const fetchURI = `https://api.openweathermap.org/data/3.0/onecall?lat=${city.lat}&lon=${city.lon}&exclude=minutely&appid=${apiKey}&units=metric`
+  const fetchURI = `https://api.openweathermap.org/data/3.0/onecall?lat=${city?.lat}&lon=${city?.lon}&exclude=minutely&appid=${apiKey}&units=metric`
 
   const { data, error, isLoading } = useSWR(fetchURI, fetcher)
   const { daily } = data || {}

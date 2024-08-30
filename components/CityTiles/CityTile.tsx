@@ -6,6 +6,7 @@ import type { Fetcher } from 'swr'
 import Image from 'next/image'
 import { OneCallResponse } from '../../lib/types'
 import { Switch } from '@headlessui/react'
+import { cityNameToSlug } from '../../lib/common'
 
 type CityTileProps = {
   city: City
@@ -13,7 +14,7 @@ type CityTileProps = {
   setDefaultCity: React.Dispatch<React.SetStateAction<City['name']>>
 }
 
-const fetcher: Fetcher<Omit<OneCallResponse, 'minutely'>, string> = (...args) =>
+export const fetcher: Fetcher<Omit<OneCallResponse, 'minutely'>, string> = (...args) =>
   fetch(...args).then((res) => res.json())
 
 export function CityTile(props: CityTileProps) {
@@ -50,7 +51,10 @@ export function CityTile(props: CityTileProps) {
       </div>
       <div className='flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white'>
         <div className='flex-1 truncate px-4 py-2 text-sm'>
-          <a href={`/cities/${city.name}`} className='font-medium text-gray-900 hover:underline'>
+          <a
+            href={`/cities/${cityNameToSlug(city.name)}`}
+            className='font-medium text-gray-900 hover:underline'
+          >
             {city.name}
           </a>
           <p className='text-gray-500'>{current.temp.toFixed(0)}°C</p>

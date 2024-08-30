@@ -33,7 +33,7 @@ export default function CityTiles() {
 
       <div className='mt-12 lg:col-span-1 lg:mt-0'>
         <h2 className='text-sm font-medium text-gray-500'>Available cities</h2>
-        <ul role='list' className='max-w-xs divide-y divide-gray-100'>
+        <ul role='list' className='max-w-screen-lg divide-y divide-gray-100'>
           {cities.map((city) => (
             <CityListItem
               key={city.name}

@@ -4,6 +4,7 @@ import CityTiles from '../../components/CityTiles/CityTiles'
 import { Cache } from 'swr'
 
 function localStorageProvider(cache: Readonly<Cache<any>>): Cache<any> {
+  if (typeof window === 'undefined') return cache
   const currentLocalStorage = localStorage.getItem('app-cache') || '[]'
   const map = new Map(JSON.parse(currentLocalStorage))
 

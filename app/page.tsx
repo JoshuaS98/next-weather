@@ -33,7 +33,7 @@ export default function Page() {
       <div className='pt-12'>
         <h1 className='mb-4 text-3xl font-bold text-gray-800'>Welcome back, traveler!</h1>
         <p className='text-lg font-medium text-gray-500'>
-          We couldn't find your default city. Please try again.
+          We couldn&apos;t find your default city. Please try again.
         </p>
       </div>
     )
@@ -47,7 +47,7 @@ export default function Page() {
       ) : (
         <div className='flex text-lg font-medium text-gray-500'>
           <h2 className='flex items-center'>
-            <span>Here's the weather in</span>
+            <span>Here&rsquo;s the weather in</span>
             <Link href={cityNameToSlug(city?.name)}>&nbsp;{city?.name}&nbsp;</Link>
             <span>today:</span>
           </h2>
